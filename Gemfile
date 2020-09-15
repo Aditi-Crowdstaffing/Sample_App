@@ -6,11 +6,17 @@ ruby '2.7.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+   gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
+#delete from here
+gem 'uglifier',     '~>2.7.2'
+gem 'coffee-rails', '~>5.0.0'
+gem 'jquery-rails', '~>4.4.0'
+gem'sdoc',          '~>0.4.1'
+
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -46,8 +52,16 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+  #delete here
+  gem 'minitest-reporters', '>=1.0.5'
+  gem 'mini_backtrace',     '>=0.1.3'
+  gem 'guard-minitest',     '>=2.3.1'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+end
+group :production do
+  #gem 'pg',             '1.2.3'
+  gem 'rails_12factor', '0.0.3'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
