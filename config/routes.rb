@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  get 'users/new'
+  #get 'sessions/new'
+  #get 'users/new'
   root             'static_pages#home'
    get 'help'    => 'static_pages#help'
    get 'about'   => 'static_pages#about'
    get 'contact' => 'static_pages#contact'
    get 'signup'  => 'users#new'
+   resources :users  #routing for 1users/1
 #  root 'static_pages#home'
   #get 'static_pages/home'
 #  get 'static_pages/help'
