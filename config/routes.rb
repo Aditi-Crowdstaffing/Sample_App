@@ -9,7 +9,9 @@ Rails.application.routes.draw do
    get    'login'   => 'sessions#new'
    post   'login'   => 'sessions#create'
    delete 'logout'  => 'sessions#destroy'
-   resources :users  #routing for 1users/1
+   resources :users
+   resources :account_activations, only: [:edit]
+   #routing for 1users/1
 #  root 'static_pages#home'
   #get 'static_pages/home'
 #  get 'static_pages/help'
