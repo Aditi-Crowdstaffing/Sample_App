@@ -10,6 +10,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
    gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'rubocop-airbnb'
+gem 'byebug'
 gem 'faker'
 gem 'will_paginate', '~> 3.3.0'
 gem 'bootstrap-will_paginate'
