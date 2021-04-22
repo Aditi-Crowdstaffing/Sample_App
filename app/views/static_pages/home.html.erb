@@ -1,9 +1,39 @@
-<div class="center jumbotron">
+<style>
+h1{
+    color :#0000CD;
+  }
+body {
 
-   <h1>Sample Web App</h1>
-     <p>You may find your required searches on
-     <a href="https://www.google.com">Google</a></p>
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+</style>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+  </div>
+<% else %>
+<div class="center jumbotron">
+<style>
+  body{
+     background-image: url("https://content.timesjobs.com/img/60054160/Master.jpg");
+   }</style>
+   <h1 style="color:#191970;">MartAid</h1>
+     <p style="color:#8B0000; font-size: 20px; font-weight: bold; font-style: italic;">It's time to show your patriotism by donating any amount you wish to the families of our brave heart martyr soldiers. If they can stand for us,then we should stand for them as well.
+     </p>
+     <% if !logged_in? %>
     <%= link_to "Sign up!", signup_path, class: "btn btn-lg btn-primary" %>
+    <% else %>
+    <% end %>
 </div>
-<%= link_to image_tag("google.png", alt: "google logo"),
-            'http://google.com/' %>
+    <img src=<%= asset_path("soldiers.png", :align=> "right")%>>
+<% end %>

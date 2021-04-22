@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+#byebug might be a problem
 
 ruby '2.7.0'
 gem 'bootstrap-sass', '3.4.1'
@@ -12,6 +13,9 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
 gem 'rubocop-airbnb'
 gem 'byebug'
 gem 'faker'
+#gem 'carrierwave',             '2.0.2'
+#gem 'mini_magick',             '~>4.0'
+#gem 'fog',                     '1.36.0'
 gem 'will_paginate', '~> 3.3.0'
 gem 'bootstrap-will_paginate'
 gem 'puma', '~> 4.1'
