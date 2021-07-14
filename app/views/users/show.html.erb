@@ -1,5 +1,19 @@
 
 <% provide(:title, @user.name) %>
+<style>
+button:link, button:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button:hover, button:active {
+  background-color: orange;
+}
+</style>
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
@@ -11,11 +25,19 @@
  </aside>
  <div class="col-md-8">
    <% if @user.microposts.any? %>
-     <h3>Microposts (<%= @user.microposts.count %>)</h3>
+     <h3>Detail (<%= @user.microposts.count %>)</h3>
      <ol class="microposts">
        <%= render @microposts %>
      </ol>
      <%= will_paginate @microposts %>
+     <p> </p>
+
+     <p>You may help the warrior by scanning the QR code below. Every rupee you pay matters.</p>
+     <img src=<%= asset_path("QRcode.jpeg", :align=> "right")%>>
+     <p>Or you may donate on:</p>
+     <p>Account Number: 7913282424</p>
+     <p>IFSC Code: KKBK0005006</p>
+     <button><a href="https://docs.google.com/forms/u/1/d/1671y3dev1r1TE_xjTKUFGw67SergZ_WcgFdSzxErBy4/edit?usp=forms_home&ths=true">Click once donated.</a></button>
    <% end %>
  </div>
 </div>

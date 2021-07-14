@@ -11,10 +11,74 @@ body {
     }
 </style>
 <% if logged_in? %>
+<form method="post" autocomplete="off" name="google-sheet">
+  	<center><br><br>
+         <h1>Registration Form</h1><br>
+         <table border="0.5">
+
+            <tr><td><b>Martyr Name : </b></td>
+            <td><input type="text" name="Name"   required="" /></td>
+            </tr>
+            <tr><td><b>Martyr's Date of Birth(DD/MM/YYYY) : </b></td>
+            <td><input type="text" name="MartyrDOB"   required="" /></td>
+            </tr>
+            <tr><td><b>Gender :</b></td>
+            <td><input type="radio"  name="Gender" value="male" >male<input type="radio"  name="Gender" value="female"  >female<br/></td>
+            </tr>
+            <tr><td><b>Date of Martyrdom(DD/MM/YYYY) : </b></td>
+            <td><input type="text" name="dateOfMartyrDom"   required="" /></td>
+            </tr>
+            <tr><td><b>Last Posting Location : </b></td>
+             <td><input type="text" name="lastPostingLocation"   required="" /></td>
+             </tr>
+             <tr><td><b>Name of Spouse (write NIL if it doesn't apply) : </b></td>
+             <td><input type="text" name="spouseName"   required="" /></td>
+             </tr>
+             <tr><td><b>Number of Children (write NIL if it doesn't apply) : </b></td>
+             <td><input type="number" name="noOfChildren"   required="" /></td>
+             </tr>
+             <tr><td><b>Account Numer : </b></td>
+             <td><input type="number" name="AccNo"   required="" /></td>
+             </tr>
+             <tr><td><b>IFSC Code : </b></td>
+             <td><input type="text" name="IFSCCode"   required="" /></td>
+             </tr>
+             <tr><td><b>GPay Number (write NIL if it doesn't apply) : </b></td>
+             <td><input type="number" name="Phone"   required="" /></td>
+             </tr>
+
+         </table>
+         <br><br>
+         <input type="submit" name="submit" value="Submit"/>
+    </center>
+  </form>
+
+  <script type="text/javascript">
+
+
+	  const scriptURL = 'https://script.google.com/macros/s/AKfycbz_WgYN6FBrTJ7ZYDmCX_StUh081KDjHov2Gh7g7Kj4yi4nat5UsusS_gR8J1TGeM9P/exec'
+            const form = document.forms['google-sheet']
+
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("You have successfully submitted."))
+                .catch(error => console.error('Error!', error.message))
+            })
+  </script>
   <div class="row">
     <aside class="col-md-4">
       <section class="user_info">
         <%= render 'shared/user_info' %>
+      </section>
+    <p> Kindly initiate the donation request by publishing the following information.
+        <ol>1) MartID (given on email)</ol>
+        <ol>2) Martyr Name</ol>
+        <ol>3) Donation amount required</ol>
+        and also upload the image of Martyr.
+    </p>
+
+
       </section>
       <section class="micropost_form">
         <%= render 'shared/micropost_form' %>
@@ -28,9 +92,10 @@ body {
      background-image: url("https://content.timesjobs.com/img/60054160/Master.jpg");
    }</style>
    <h1 style="color:#191970;">MartAid</h1>
-     <p style="color:#8B0000; font-size: 20px; font-weight: bold; font-style: italic;">It's time to show your patriotism by donating any amount you wish to the families of our brave heart martyr soldiers. If they can stand for us,then we should stand for them as well.
+     <p style="color:#8B0000; font-size: 20px; font-weight: bold; font-style: italic;">It's time to show your patriotism by donating any amount you wish to the families of our brave heart martyr soldiers. If they can stand for us, then we should stand for them as well.
      </p>
      <% if !logged_in? %>
+
     <%= link_to "Sign up!", signup_path, class: "btn btn-lg btn-primary" %>
     <% else %>
     <% end %>

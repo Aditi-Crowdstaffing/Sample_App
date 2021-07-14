@@ -1,7 +1,22 @@
-<%= form_for(@micropost) do |f| %>
+<%= form_for(@micropost, html: { multipart: true }) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
+    <%= f.text_area :content, placeholder: "Type martyr's details here...." %>
   </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
-<% end %>
+
+    <span class="picture">
+    <p>Upload the image here:
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %></p>
+    </span>
+    <%= f.submit "Post", class: "btn btn-primary" %>
+  <% end %>
+
+  <script type="text/javascript">
+    $('#micropost_picture').bind('change', function() {
+      var size_in_megabytes = this.files[0].size/1024/1024;
+      if (size_in_megabytes > 10) {
+        alert('Maximum file size is 10MB. Please choose a smaller file.');
+      }
+    });
+  </script>
